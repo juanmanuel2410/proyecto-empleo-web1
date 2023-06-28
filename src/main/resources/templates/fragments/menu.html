@@ -1,0 +1,49 @@
+<nav th:fragment="menu-principal" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" th:href="@{/}">EmpleosApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
+      <a class="nav-link" th:href="@{/solicitudes/indexPaginate}">Solicitudes</a>
+	   </li>
+	   <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
+	      <a class="nav-link" th:href="@{/vacantes/indexPaginate}">Vacantes</a>
+	   </li>
+	   <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
+	      <a class="nav-link" th:href="@{/categorias/indexPaginate}">Categorías</a>
+	   </li>
+	   <li class="nav-item" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">
+	      <a class="nav-link" th:href="@{/usuarios/index}" >Usuarios</a>
+	   </li>
+	   <li class="nav-item">
+        <a class="nav-link" th:href="@{/about}">Acerca</a>
+      </li>                    
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/contacto/contac}">Reporta un problema</a>
+      </li> 
+      
+      
+    </ul>
+    <div sec:authorize="isAnonymous()">
+		<a class="btn btn-primary" th:href="@{/index}">Ingresar</a>&nbsp;
+		<a class="btn btn-primary" th:href="@{/signup}">Registrarse</a>
+	</div>	    
+    <div sec:authorize="isAuthenticated()" class="logout-button">
+  <span class="text-light">Bienvenido</span>&nbsp;<a class="text-light" th:href="@{/usuhome}" sec:authentication="principal.nombre"></a>&nbsp;
+ <!--   <span sec:authentication="principal.authorities">ROLES</span>-->
+  <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Salir" class="logout-input">
+  </form>
+</div>
+
+
+ 
+
+
+
+  
+  </div>
+</nav>     

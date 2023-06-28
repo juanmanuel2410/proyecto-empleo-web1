@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bdea818a-f4e1-4eab-bc6c-4d63eca4821a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="usuario.nombre" class="java.lang.String"/>
+	<field name="vacante.nombre" class="java.lang.String"/>
+	<field name="comentarios" class="java.lang.String"/>
+	<field name="fecha" class="java.time.LocalDate"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="86" backcolor="#BAB1B1" uuid="13479eed-dca7-42be-9dfa-7bd7eed48080"/>
+			</rectangle>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="390" y="57" width="165" height="29" forecolor="#757575" backcolor="#0A0909" uuid="f53e644c-2062-4af8-9ecf-ca82b76d4a88"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="14" width="410" height="63" uuid="d54ae8d6-8a65-4160-8aac-983b139b3921"/>
+				<textElement textAlignment="Center">
+					<font fontName="Broadway" size="45"/>
+				</textElement>
+				<text><![CDATA[EMPLEOS App]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="70" height="67" uuid="1ed90078-d517-4bfc-a246-ccf35342001a"/>
+				<imageExpression><![CDATA["https://cdn-icons-png.flaticon.com/512/53/53020.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="86" width="555" height="28" uuid="1fbcfc63-ed05-42e0-b85f-82d3d08990fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Humnst777 Blk BT" size="14"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE VACANTES CON CANTIDAD DE USUARIOS POSTULADOS]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="86" width="555" height="28" backcolor="#DAEDED" uuid="e0204d0a-1058-4c2a-a8cc-05043d15acdc"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="33" y="84" width="488" height="28" uuid="27644565-eb97-4c01-b5db-6740fa549bc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Humnst777 Blk BT" size="14"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE SOLICITUDES CON DETALLE USUARIO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="150" height="15" backcolor="#F2D8D8" uuid="294a1186-003c-44af-a2eb-69c4de858a18"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE_USUARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="10" width="105" height="15" backcolor="#F2D8D8" uuid="3033bc26-86e0-45a8-b767-614064e81828"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="10" width="150" height="15" backcolor="#F2D8D8" uuid="eee25f48-428a-45da-99bf-c7e9457752ab"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMENTARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="10" width="141" height="15" backcolor="#F2D8D8" uuid="12cbf111-2db1-4d6b-aa28-1c1bee704f40"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE_VACANTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="150" height="47" uuid="02a018c4-0cda-4d90-a34e-ea19e0ef7016"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{usuario.nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="0" width="160" height="47" uuid="55348327-0fe2-44c4-8333-7593b51fa11c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{comentarios}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="140" height="47" uuid="c5fb4a42-9b73-4aa3-8a2b-f8abebbc6561"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{vacante.nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="105" height="47" uuid="9e8480af-5f59-4475-9b18-504280793415"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="110" splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

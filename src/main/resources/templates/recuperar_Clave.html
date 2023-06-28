@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Ingresar al Sistema</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <header th:insert="fragments/menu :: menu-principal"></header>
+
+
+
+ 		<div>
+ 			 <h2>Recuperar Contraseña</h2>
+ 		</div>
+ 		<div th:if="${error!=null}">
+ 			<p class="text-danger">[[${error}]]</p>
+ 		</div>
+ 		
+ 		<div th:if="${message!=null}">
+ 			<p class="text-warning">[[${message}]]</p>
+ 		</div>
+ 		
+ 		
+ 		<form th:action="@{/recuperar}" method=post style ="max-width:350px;margin:0 auto;">
+ 			<div class="border border-secondary rounded p-3">
+ 			<div>
+ 				<p>
+ 					En esta seccion puede cambiar su contraseña con un link en su email
+ 				</p>
+ 			</div>
+ 				<p> 
+ 				      <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" required autofocus/>
+ 				</p> 
+ 				
+ 				<p> 
+ 				      <input type="submit" value="Login" class="btn btn-primary"/>
+ 				</p> 
+ 			
+ 			</div> 
+ 		
+ 		</form>
+ 		
+ 		
+
+
+ 
+
+<footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

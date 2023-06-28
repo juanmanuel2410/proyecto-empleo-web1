@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | PerfilUsuario</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+</head>
+<body> 
+
+    <header th:insert="fragments/menu :: menu-principal"></header>
+    <h1>CAMBIA TU CONTRASEÑA</h1>
+    
+	<form th:action="@{/reset}" method="post" class="form-signin">
+		<input type="hidden" name="token" th:value="${token}">
+              <p>
+                  <label for="password" class="sr-only">Contraseña:</label>
+                  <input type="password" name="password" id="password" class="form-control"   required autofocus placeholder="Ingresa tu nueva clave"
+                   ><br>
+              </p>  
+              <p>  
+                  <label for="confirmpassword" class="sr-only">Confirmar contraseña:</label>
+                  <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" placeholder="Confirma la contraseña ingresada" required
+                  oninput="checkPassword(this);"><br>
+              </p>
+              <p class="text-center">    
+                  <input type="submit" value="Cambiar" class="btn btn-primary">
+              </p>    
+            </form>
+            
+            <script type="text/javascript">
+    function checkPassword(confirm) {
+        if (confirm.value !== $("#password").val()) {
+            confirm.setCustomValidity("Las contraseñas no coinciden");
+        } else {
+            confirm.setCustomValidity("");
+        }
+    }
+</script>
+
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
